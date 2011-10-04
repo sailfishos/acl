@@ -1,0 +1,34 @@
+* Thu Jun 02 2011 Auke Kok <auke-jan.h.kok@intel.com> - 2.2.51
+- explicitly exclude .a/.la files
+
+* Fri May 27 2011 Anas Nashif <anas.nashif@intel.com> - 2.2.51
+- Make it work with autosplit
+
+* Sun May 22 2011 Anas Nashif <anas.nashif@intel.com> - 2.2.51
+- Update to 2.2.51
+- Split Documentation/Translations
+
+* Fri Dec 03 2010 Jan-Simon Möller <jsmoeller@linuxfoundation.org> - 2.2.49-1
+- Fix BMC#11076:Trivial fix typo in specfile.
+
+* Fri Jan 08 2010 Passion Zhao <passion.zhao@intel.com> - 2.2.49-1
+- Update to 2.2.49 to address CVE-2009-4411:  getfacl/setfacl --physical mode does not work  
+- Add setfacl patch to fix CVE-2009-4411
+- Rebase patch: 
+    acl-2.2.3-multilib.patch
+    acl-2.2.39-build.patch
+- Remove upstreamed patch: 
+    acl-2.2.39-params.patch
+    acl-2.2.39-path_max.patch
+    acl-2.2.39-segfault.patch
+    acl-2.2.45-exitcode.patch
+
+* Tue Dec 16 2008 Anas Nashif <anas.nashif@intel.com> 2.2.47
+- Fixed rpmlint errors in Summary tag
+
+* Fri Dec 05 2008 Arjan van de Ven <arjan@linux.intel.com> 2.2.47
+- minor spec cleanups
+
+* Wed Jul 23 2008 Zhang Xin <xing.z.zhang@intel.com>
+- Mark man file and info file as %doc
+

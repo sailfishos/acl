@@ -1,0 +1,13 @@
+<package project="Mer:Trunk:Base" name="acl">
+  <title>Access control list utilities</title>
+  <description>This package contains the getfacl and setfacl utilities needed for
+manipulating access control lists.
+
+</description>
+  <build>
+    <enable repository="standard" arch="armv7el"/>
+    <enable repository="standard" arch="armv5el"/>
+    <enable/>
+  </build>
+  <url>http://oss.sgi.com/projects/xfs/</url>
+</package>
