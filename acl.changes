@@ -1,3 +1,6 @@
+* Mon Oct 10 2011 Carsten Munk <carsten@maemo.org> - 2.2.51
+- Test commit message
+
 * Thu Jun 02 2011 Auke Kok <auke-jan.h.kok@intel.com> - 2.2.51
 - explicitly exclude .a/.la files
 
