@@ -1,3 +1,6 @@
+* Mon Oct 01 2012 Marko Saukko <marko.saukko@jollamobile.com> - 2.2.51
+- Contributing to MER#174: moving libs under /usr
+
 * Mon Oct 10 2011 Carsten Munk <carsten@maemo.org> - 2.2.51
 - Test commit message
 

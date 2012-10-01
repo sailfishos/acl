@@ -2,7 +2,6 @@ Summary: Access control list utilities
 Name: acl
 Version: 2.2.51
 Release: 1
-BuildRequires: libattr-devel >= 2.4.1
 Source: http://download.savannah.gnu.org/releases/acl/acl-%{version}.src.tar.gz
 # Make it install in $(DESTDIR)
 Patch0: acl-2.2.49-build.patch
@@ -11,6 +10,7 @@ License: GPLv2
 Group: System/Base
 URL: http://savannah.nongnu.org/projects/acl
 BuildRequires: gettext
+BuildRequires: libattr-devel >= 2.4.1
 
 %description
 This package contains the getfacl and setfacl utilities needed for
@@ -46,9 +46,9 @@ defined in POSIX 1003.1e draft standard 17.
 
 %build
 touch .census
-#acl abuses libexecdir
 autoconf
-%configure --libdir=/%{_lib} --libexecdir=%{_libdir}
+#acl abuses libexecdir
+%configure --disable-static --libexecdir=%{_libdir}
 make LIBTOOL="libtool --tag=CC" %{?_smp_mflags}
 
 %install
@@ -56,18 +56,19 @@ make LIBTOOL="libtool --tag=CC" %{?_smp_mflags}
 make install-dev DESTDIR=$RPM_BUILD_ROOT
 make install-lib DESTDIR=$RPM_BUILD_ROOT
 
-# fix links to shared libs and permissions
-rm -f $RPM_BUILD_ROOT/%{_libdir}/libacl.so
-ln -sf ../../%{_lib}/libacl.so $RPM_BUILD_ROOT/%{_libdir}/libacl.so
-chmod 0755 $RPM_BUILD_ROOT/%{_lib}/libacl.so.*.*.*
+rm %{buildroot}/%{_libdir}/libacl.{la,a}
+
+
+# fix permissions
+chmod 0755 $RPM_BUILD_ROOT/%{_libdir}/libacl.so.*.*.*
 
 %find_lang %{name}
+
 %post -n libacl -p /sbin/ldconfig
 
 %postun -n libacl -p /sbin/ldconfig
 
 %lang_package
-
 
 %docs_package
 
@@ -80,13 +81,11 @@ chmod 0755 $RPM_BUILD_ROOT/%{_lib}/libacl.so.*.*.*
 %files -n libacl-devel
 %defattr(-,root,root,-)
 %{_defaultdocdir}/*
-/%{_lib}/libacl.so
+%{_libdir}/libacl.so
 %{_includedir}/acl
 %{_includedir}/sys/acl.h
-%{_libdir}/libacl.*
-%exclude /%{_libdir}/libacl.a
-%exclude /%{_libdir}/libacl.la
 
 %files -n libacl
 %defattr(-,root,root,-)
-/%{_lib}/libacl.so.*
+%{_libdir}/libacl.so.*
+
