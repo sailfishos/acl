@@ -1,7 +1,7 @@
 Summary: Access control list utilities
 Name: acl
 Version: 2.2.53
-Release: 2
+Release: 1
 BuildRequires: gawk
 BuildRequires: gettext
 BuildRequires: libattr-devel
