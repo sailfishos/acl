@@ -1,6 +1,6 @@
 Summary: Access control list utilities
 Name: acl
-Version: 2.2.53
+Version: 2.3.1
 Release: 1
 BuildRequires: gawk
 BuildRequires: gettext
@@ -19,7 +19,6 @@ manipulating access control lists.
 %package -n libacl
 Summary: Dynamic library for access control list support
 License: LGPLv2+
-Group: System Environment/Libraries
 Conflicts: filesystem < 3
 
 %description -n libacl
@@ -30,7 +29,6 @@ control lists.
 %package -n libacl-devel
 Summary: Files needed for building programs with libacl
 License: LGPLv2+
-Group: Development/Libraries
 Requires: libacl = %{version}-%{release}, libattr-devel
 
 %description -n libacl-devel
@@ -71,7 +69,6 @@ rm -rf $RPM_BUILD_ROOT%{_docdir}/%{name}*
 
 %files -f %{name}.lang
 %defattr(-,root,root,-)
-%{!?_licensedir:%global license %%doc}
 %license doc/COPYING*
 %{_bindir}/chacl
 %{_bindir}/getfacl
@@ -91,4 +88,5 @@ rm -rf $RPM_BUILD_ROOT%{_docdir}/%{name}*
 
 %files -n libacl
 %defattr(-,root,root,-)
+%license doc/COPYING.LGPL
 %{_libdir}/libacl.so.*
