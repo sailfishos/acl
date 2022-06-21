@@ -7,10 +7,10 @@ BuildRequires: gettext
 BuildRequires: libattr-devel
 BuildRequires: libtool
 Requires: libacl = %{version}-%{release}
-Source: https://download-mirror.savannah.gnu.org/releases/acl/acl-%{version}.tar.gz
+Source: %{name}-%{version}.tar.gz
 
 License: GPLv2+
-URL: https://savannah.nongnu.org/projects/acl
+URL: https://github.com/sailfishos/acl
 
 %description
 This package contains the getfacl and setfacl utilities needed for
